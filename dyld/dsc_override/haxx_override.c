@@ -2,7 +2,7 @@
  * This is used in pangu 9 (9.0-9.1), and fix in 9.2
  * copyright (c) kok3shidoll & Clarity
  *
- * build : gcc (-DARM64) haxx_override.c export_stuff/export_stuff.c -Iexport_stuff/ -o haxx_override
+ * build : gcc (-DARM64) (-DNOMAIN) haxx_override.c export_stuff/export_stuff.c -Iexport_stuff/ -o haxx_override
  *
  * do not abuse
  *
@@ -132,7 +132,7 @@ struct dyld_cache_image_info
 #define NLIST nlist
 #endif
 
-#ifndef UNTETHER
+#ifdef NOMAIN
 int haxx(void)
 {
 #ifdef ARM64
